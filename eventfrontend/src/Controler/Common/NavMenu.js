@@ -6,10 +6,10 @@ export const menuItems = [
     path: "/",
   },
   {
-    title: "Apps",
+    title: "customer",
     icon: "ti ti-apps",
     dropdown: [
-      { label: "Emails", path: "/about" },
+      { label: "Add customer", path: "/Addcustomer" },
       { label: "Email Read", path: "/email-read" },
       { label: "Chat", path: "/chat" },
       { label: "Contact List", path: "/contacts" },
