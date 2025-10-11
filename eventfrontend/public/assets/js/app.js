@@ -29,7 +29,9 @@ function dismissDropdownMenu() {
       e.classList.remove("block");
     });
 }
-document.getElementById("toggle-menu")?.addEventListener("click", function () {
+document.getElementById("toggle-menu")?.addEventListener("click", function (s) {
+  console.log(s)
+  console.log(s.dataset)
   var e = document.getElementById("mobile-menu-2");
   e.classList.toggle("block"),
     e.classList.contains("block")

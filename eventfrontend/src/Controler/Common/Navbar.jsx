@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { menuItems } from './NavMenu'
 import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
+
+	 const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = (e) => {
+    console.log('e'); // same as s in your original code
+    console.log(isOpen);
+    setIsOpen((prev) => !prev);
+  };
+
 	return (
 		<nav className="border-gray-200 bg-gray-900 px-2.5 py-2.5 shadow-sm dark:bg-slate-800 sm:px-4 block print:hidden">
 			<div className="container mx-0 flex max-w-full flex-wrap items-center lg:mx-auto">
@@ -13,7 +22,7 @@ export default function Navbar() {
 						<img src="assets/images/logo.png" alt className="ml-2 hidden xl:block mt-1" />
 					</a>
 				</div>
-				<div className="order-2 hidden w-full items-center justify-between md:order-1 md:ml-5 md:flex md:w-auto" id="mobile-menu-2">
+				<div className={`order-2 w-full items-center justify-between md:order-1 md:ml-5 md:flex md:w-auto ${isOpen?'block':'hidden'}`} id="mobile-menu-2">
 					<ul className="font-body mt-4 flex flex-col font-medium md:mt-0 md:flex-row md:text-sm md:font-medium space-x-0 md:space-x-4 lg:space-x-6 xl:space-x-8 navbar">
 
 						{menuItems.map((Menu, index) => {
@@ -154,7 +163,7 @@ export default function Navbar() {
 							</ul>
 						</div>
 					</div>
-					<button data-collapse-toggle="mobile-menu-2" type="button" id="toggle-menu" className="ml-1 inline-flex items-center rounded-lg text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden" aria-controls="mobile-menu-2" aria-expanded="false">
+					<button data-collapse-toggle="mobile-menu-2" onClick={toggleMenu} type="button" id="toggle-menu" className="ml-1 inline-flex items-center rounded-lg text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden" aria-controls="mobile-menu-2" aria-expanded="false">
 						<span className="sr-only">Open main menu</span>
 						<i className="ti ti-menu-2 h-6 w-6 text-lg leading-6" />
 						<i className="ti ti-X hidden h-6 w-6 text-lg leading-6" />
