@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function PageHeader({
 	title = "Dashboard",
-	breadcrumb = [],
-	buttonText = "Create New",
-	onButtonClick,
-	buttonLink = null,
+	breadcrumb = []
 }) {
 
 	//------use----
@@ -64,25 +61,7 @@ export default function PageHeader({
 							</div>
 
 							{/* Right side: Action button */}
-							{buttonText && (
-								<div className="flex items-center">
-									{buttonLink ? (
-										<Link
-											to={buttonLink}
-											className="px-3 py-2 lg:px-4 bg-blue-500 text-white text-sm font-semibold rounded hover:bg-blue-600"
-										>
-											{buttonText}
-										</Link>
-									) : (
-										<button
-											onClick={onButtonClick}
-											className="px-3 py-2 lg:px-4 bg-blue-500 text-white text-sm font-semibold rounded hover:bg-blue-600"
-										>
-											{buttonText}
-										</button>
-									)}
-								</div>
-							)}
+							
 						</div>
 					</div>
 				</div>
